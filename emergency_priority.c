@@ -1,18 +1,6 @@
 /*
  * EMERGENCY PATIENT PRIORITY SYSTEM
- * ---------------------------------
- * Decision-support triage system:
- *   - Register patients with full vitals
- *   - Score every patient against normal ranges (risk points)
- *   - Emergency alert override (forces RED + top of queue)
- *   - Run Priority Analysis (score all -> sort all -> priority queue)
- *   - Call next / serve / search / explain / report
- *   - history.txt event log, patients.dat persistence, report.txt
- *
- * Compile:  gcc -Wall -Wextra -o triage emergency_priority.c
- * Run:      ./triage
  */
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -25,7 +13,7 @@
 #define DATA_FILE      "patients.dat"
 #define REPORT_FILE    "report.txt"
 
-/* ---------- enums / constants ---------- */
+// enums/constants  //
 enum { CAT_RED, CAT_ORANGE, CAT_YELLOW, CAT_GREEN };
 
 enum { CC_CHEST_PAIN = 1, CC_BREATHING, CC_BLEEDING, CC_FRACTURE,
@@ -58,12 +46,12 @@ typedef struct {
     int   id;
     char  name[50];
     int   age;
-    char  gender;              /* M / F / O */
+    char  gender;              
     int   heartRate;
     int   oxygen;
     int   systolicBP;
     int   diastolicBP;
-    float temperature;         /* Fahrenheit */
+    float temperature;         
     int   respiratoryRate;
     int   consciousness;       /* 0 Unconscious, 1 Drowsy, 2 Alert */
     int   painLevel;           /* 0-10 */
